@@ -3,6 +3,8 @@
 // What is a variable
 
 // Variable types
+$name = "Zura";
+$age = 28;
 
 // Declare variables
 
