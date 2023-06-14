@@ -20,6 +20,8 @@ do {
     $counter++;
 } while ($counter < 10);
 
+//The different between while and do while, when counter is 0, while loop will not run, but do while loop will run once (answer 0).
+
 // for
 for ($i = 0; $i < 10; $i++) {
     echo $i."<br>";
@@ -39,8 +41,9 @@ $person = [
     'hobbies' => ['Tennis', 'Video Games'],
 ];
 foreach ($person as $key => $value) {
-    if ($key === 'hobbies') {
-        break;
+    if (is_array($value)) {
+        echo $key . ' ' . implode(",", $value) . '<br>';
+        continue;
     }
     echo $key . ' ' . $value . '<br>';
 }
