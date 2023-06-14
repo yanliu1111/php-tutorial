@@ -1,9 +1,9 @@
 <?php
 
 // while
-while (true) { // Infinite loop: DON'T run this
-    // Do something constantly
-}
+// while (true) { 
+//     
+// }
 
 // Loop with $counter
 $counter = 0; // When counter is 10??
