@@ -10,15 +10,15 @@
 The course covers all the basic things about PHP.
 localhost server `http://localhost:4433/php-crash-course/`
 
-- Comments
-- Variables
-- Numbers
-- Strings
-- Arrays
-- Conditionals
-- Loops
-- Functions
-- Dates
+- ✅ Comments
+- ✅ Variables
+- ✅ Numbers
+- ✅ Strings
+- ✅ Arrays
+- ✅ Conditionals
+- ✅ Loops
+- ✅ Functions
+- ✅ Dates
 - Including PHP files
 - Working with File System
 - Object Oriented PHP (OOP)
