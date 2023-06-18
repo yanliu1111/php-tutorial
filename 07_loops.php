@@ -47,3 +47,5 @@ foreach ($person as $key => $value) {
     }
     echo $key . ' ' . $value . '<br>';
 }
+
+// implode means join the array into a string.
