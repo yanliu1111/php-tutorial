@@ -5,7 +5,7 @@ $fruits = ["Banana", "Apple", "Orange"];
 
 // Print the whole array
 echo '<pre>';
-var_dump($fruits); // print_r
+var_dump($fruits); // print_r means print readable
 echo '</pre>';
 
 // Get element by index
