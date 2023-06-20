@@ -4,7 +4,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error connecti
 // super global variable $_POST
 
 // echo '<pre>';
-// var_dump($_SERVER);
+// var_dump($_FILES);
 // echo '</pre>';
 // exit;
 $error=[];
@@ -20,23 +20,49 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if (!$title) {
         $error[] = 'Product title is required';
     }
-    if (!$description) {
-        $error[] = 'Product description is required';
-    }
     if (!$price) {
     $error[] = 'Product price is required';
     }
+
+    if (!is_dir('images')) {
+        mkdir('images');
+    }
+
     if (!$error){
-        $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
-        VALUES (:title, :image, :description, :price, :date)");
+        $image = $_FILES['image'] ?? null;
+        $imagePath = '';
+
+        if ($image && $image['tmp_name']) {
+            $imagePath = 'images/' . randomString(8) . '/' . $image['name'];
+            // echo $imagePath;
+            mkdir(dirname($imagePath));
+            move_uploaded_file($image['tmp_name'], $imagePath);
+        }
+        
+    $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
+    VALUES (:title, :image, :description, :price, :date)");
     $statement->bindValue(':title', $title);
     $statement->bindValue(':image', $imagePath);
     $statement->bindValue(':description', $description);
     $statement->bindValue(':price', $price);
     $statement->bindValue(':date', date('Y-m-d H:i:s'));
     $statement->execute();
+    header('Location: index.php');
     }
 }
+//build random str for image name
+function randomString($n)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $str = '';
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $str .= $characters[$index];
+    }
+
+    return $str;
+}
+
 ?>
 
 <!doctype html>
@@ -61,7 +87,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
     <?php endif; ?>
 
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label">Product Image</label>
             <br>
