@@ -24,9 +24,9 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
 - ✅ Object Oriented PHP (OOP)
 - ✅ CURL
 - Product CRUD
-  - Working with forms
-    ✅ MySQL
-    ✅ boostrap
+  - Working with forms <br>
+    ✅ MySQL <br>
+    ✅ boostrap <br>
     ✅
   - File uploading and file validation
   - Working with mysql
