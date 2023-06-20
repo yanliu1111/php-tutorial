@@ -7,24 +7,36 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error connecti
 // var_dump($_SERVER);
 // echo '</pre>';
 // exit;
-
-echo $_SERVER['REQUEST_METHOD'] . '<br>';
+$error=[];
+$title = '';
+$description = '';
+$price = '';
+// echo $_SERVER['REQUEST_METHOD'] . '<br>';
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-$title = $_POST['title']; //test
-$description = $_POST['description'];
-$price = $_POST['price'];
-$create_date = date('Y-m-d H:i:s');
-//insert into database
-$statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
-VALUES (:title, :image, :description, :price, :create_date)");
-$statement->bindValue(':title', $title);
-$statement->bindValue(':image', '');
-$statement->bindValue(':description', $description);
-$statement->bindValue(':price', $price);
-$statement->bindValue(':create_date', $create_date);
-$statement->execute();
+    $title = $_POST['title']; //test
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $create_date = date('Y-m-d H:i:s');
+    if (!$title) {
+        $error[] = 'Product title is required';
+    }
+    if (!$description) {
+        $error[] = 'Product description is required';
+    }
+    if (!$price) {
+    $error[] = 'Product price is required';
+    }
+    if (!$error){
+        $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
+        VALUES (:title, :image, :description, :price, :date)");
+    $statement->bindValue(':title', $title);
+    $statement->bindValue(':image', $imagePath);
+    $statement->bindValue(':description', $description);
+    $statement->bindValue(':price', $price);
+    $statement->bindValue(':date', date('Y-m-d H:i:s'));
+    $statement->execute();
+    }
 }
-
 ?>
 
 <!doctype html>
@@ -41,6 +53,14 @@ $statement->execute();
 
 <body>
     <h1>Create New Product</h1>
+    <?php if(!empty($error)): ?>
+    <div class="alert alert-danger">
+        <?php foreach ($error as $error): ?>
+        <div><?php echo $error ?></div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+
     <form action="" method="post">
         <div class="mb-3">
             <label class="form-label">Product Image</label>
@@ -49,15 +69,15 @@ $statement->execute();
         </div>
         <div class="mb-3">
             <label class="form-label">Product Title</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="title" class="form-control" value="<?php echo $title ?>">
         </div>
         <div class="mb-3">
             <label class="form-label">Product Description</label>
-            <textarea name="description" class="form-control"></textarea>
+            <textarea class="form-control" name="description"><?php echo $description ?></textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Product Price</label>
-            <input type="number" step=".01" name="price" class="form-control">
+            <input type="number" step=".01" name="price" class="form-control" value="<?php echo $price ?>">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
