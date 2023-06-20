@@ -28,6 +28,9 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
     ✅ MySQL <br>
     ✅ Boostrap <br>
     ✅ Form validation (error popup with wrong input and mysql can varify the input data) <br>
-  - File uploading and file validation
+  - File uploading and file validation <br>
+    ✅ Uploading Image file w unique name<br>
+    ✅ Delete and Update Product <br>
+    ✅ Improve CRUD: code refactoring <br>
   - Working with mysql
 - Composer and autoloading
