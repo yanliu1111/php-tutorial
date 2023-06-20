@@ -2,9 +2,28 @@
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=products_crud', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Error connection threw exception
 // super global variable $_POST
-echo '<pre>';
-var_dump($_POST);
-echo '</pre>';
+
+// echo '<pre>';
+// var_dump($_SERVER);
+// echo '</pre>';
+// exit;
+
+echo $_SERVER['REQUEST_METHOD'] . '<br>';
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$title = $_POST['title']; //test
+$description = $_POST['description'];
+$price = $_POST['price'];
+$create_date = date('Y-m-d H:i:s');
+//insert into database
+$statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
+VALUES (:title, :image, :description, :price, :create_date)");
+$statement->bindValue(':title', $title);
+$statement->bindValue(':image', '');
+$statement->bindValue(':description', $description);
+$statement->bindValue(':price', $price);
+$statement->bindValue(':create_date', $create_date);
+$statement->execute();
+}
 
 ?>
 
