@@ -26,8 +26,8 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
 - Product CRUD
   - Working with forms <br>
     ✅ MySQL <br>
-    ✅ boostrap <br>
-    ✅
+    ✅ Boostrap <br>
+    ✅ Form validation (error popup with wrong input and mysql can varify the input data) <br>
   - File uploading and file validation
   - Working with mysql
 - Composer and autoloading
