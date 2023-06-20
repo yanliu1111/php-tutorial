@@ -20,11 +20,14 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
 - ✅ Functions
 - ✅ Dates
 - ✅ Including PHP files
-- Working with File System
-- Object Oriented PHP (OOP)
-- CURL
+- ✅ Working with File System
+- ✅ Object Oriented PHP (OOP)
+- ✅ CURL
 - Product CRUD
   - Working with forms
+    ✅ MySQL
+    ✅ boostrap
+    ✅
   - File uploading and file validation
   - Working with mysql
 - Composer and autoloading
