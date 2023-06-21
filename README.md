@@ -32,5 +32,6 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
     ✅ Uploading Image file w unique name<br>
     ✅ Delete and Update Product <br>
     ✅ Improve CRUD: code refactoring <br>
+    ✅ Create virtual host or php build-in server <br>
   - Working with mysql
 - Composer and autoloading
