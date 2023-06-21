@@ -33,5 +33,14 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
     ✅ Delete and Update Product <br>
     ✅ Improve CRUD: code refactoring <br>
     ✅ Create virtual host or php build-in server <br>
+    ```bash
+    php -S localhost:8080
+    ```
   - Working with mysql
-- Composer and autoloading
+- Composer and autoloading <br>
+  - ✅ Name Space & Autoloading with composer <br>
+  - MVC framework with Custom Routing <br>
+    1. MVC Controller <br>
+    2. MVC View <br>
+    3. MVC Model <br>
+  - Set Apache Virtual Hosts <br>
