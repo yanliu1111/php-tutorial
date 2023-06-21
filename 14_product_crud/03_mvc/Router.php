@@ -4,6 +4,11 @@ namespace app;
 class Router {
     public array $getRoutes = [];
     public array $postRoutes = [];
+    public Database $db;
+    public function __construct()
+    {
+        $this->db = new Database();
+    }
     
     public function get($url, $fn)
     {
@@ -31,6 +36,19 @@ class Router {
         } else {
             echo "Page not found";
         }
+    }
+
+    public function renderView($view, $params = [])
+    {
+        foreach ($params as $key => $value){
+            //$$key is fro creating a variable variable
+            //in ProductController.php, $params is ['products' => $products]
+            $$key = $value;
+        }
+        ob_start();//start caching output, save in the local buffer not send to the browser
+        include_once __DIR__."/views/$view.php";
+        $content = ob_get_clean();
+        include_once __DIR__."/views/_layout.php";
     }
     
 }
