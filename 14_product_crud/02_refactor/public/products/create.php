@@ -34,7 +34,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <?php include_once "../../views/partials/header.php" ?>
 <p>
     <a href="index.php" class="btn btn-secondary">Go Back to Products Page</a>
-
 </p>
 
 
