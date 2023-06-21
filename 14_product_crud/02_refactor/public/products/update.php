@@ -1,8 +1,8 @@
 <?php
 
 /** @var $pdo \PDO */
-$pdo = require_once "database.php";
-require_once "functions.php";
+$pdo = require_once "../../database.php";
+require_once "../../functions.php";
 
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -26,7 +26,7 @@ $price = $product['price'];
 // echo $_SERVER['REQUEST_METHOD'] . '<br>';
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
-    require_once "validate_product.php";
+    require_once "../../validate_product.php";
 if (!$error){    
     $statement = $pdo->prepare("UPDATE products SET title = :title, image=:image, description=:description, price=:price where id=:id");
     $statement->bindValue(':title', $title);
@@ -40,7 +40,7 @@ if (!$error){
 }
 ?>
 
-<?php include_once "views/partials/header.php" ?>
+<?php include_once "../../views/partials/header.php" ?>
 
 <body>
     <p>
@@ -48,7 +48,7 @@ if (!$error){
 
     </p>
     <h1>Update Product <?php echo $product['title']?></h1>
-    <?php include_once "views/products/form.php" ?>
+    <?php include_once "../../views/products/form.php" ?>
 
 </body>
 

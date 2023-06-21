@@ -1,7 +1,7 @@
 <?php
 /** @var $pdo \PDO */
-require_once "database.php";
-require_once "functions.php";
+require_once "../../database.php";
+require_once "../../functions.php";
 // super global variable $_POST
 // echo '<pre>';
 // var_dump($_FILES);
@@ -16,7 +16,7 @@ $product = [
 $price = '';
 // echo $_SERVER['REQUEST_METHOD'] . '<br>';
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once "validate_product.php";
+    require_once "../../validate_product.php";
     if (!$error){
     $statement = $pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
     VALUES (:title, :image, :description, :price, :date)");
@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 ?>
 
-<?php include_once "views/partials/header.php" ?>
+<?php include_once "../../views/partials/header.php" ?>
 <p>
     <a href="index.php" class="btn btn-secondary">Go Back to Products Page</a>
 
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
 <h1>Create New Product</h1>
-<?php include_once "views/products/form.php" ?>
+<?php include_once "../../views/products/form.php" ?>
 
 </body>
 

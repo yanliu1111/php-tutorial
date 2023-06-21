@@ -8,7 +8,7 @@
 
 <form action="" method="post" enctype="multipart/form-data">
     <?php if ($product['image']): ?>
-    <img src="<?php echo $product['image'] ?>" class="update-image">
+    <img src="/<?php echo $product['image'] ?>" class="update-image">
 
     <?php endif; ?>
     <div class="mb-3">
