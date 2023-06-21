@@ -1,0 +1,15 @@
+{
+  "name": "yan/autoloading",
+  "authors": [
+    {
+      "name": "yanliu1111",
+      "email": "liuyan0504@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "app\\": "./app"
+    }
+  }
+}
