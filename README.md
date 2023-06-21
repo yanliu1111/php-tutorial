@@ -53,6 +53,6 @@ In `14_product_crud` folder, there are 1 folder named `03_mvc` which is the fina
 style="display: block;
 margin-left: auto;
 margin-right: auto;"
-src="framework.png"
+src="framework2.png"
 alt="framework">
 </img> <br>
