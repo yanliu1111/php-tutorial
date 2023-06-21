@@ -4,15 +4,15 @@ namespace app\controllers;
 
 class ProductController
 {
-   public function index()
+   public static function index()
    {
       echo "index page";
    }
-   public function create()
+   public static function create()
    {
       echo "create page";
    }
-   public function update()
+   public static function update()
    {
       echo "update page";
    }
