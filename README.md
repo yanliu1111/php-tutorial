@@ -44,3 +44,15 @@ localhost server `http://localhost:4433/php-crash-course-2020/`
     2. ✅ MVC View <br>
     3. ✅ MVC Model <br>
   - Set Apache Virtual Hosts <br>
+
+## 📝 Project Structure
+
+In `14_product_crud` folder, there are 1 folder named `03_mvc` which is the final e-commerce project using MVC framework with custom routing. And the project framework is following: <br>
+
+<img
+style="display: block;
+margin-left: auto;
+margin-right: auto;"
+src="framework.png"
+alt="framework">
+</img> <br>
