@@ -28,23 +28,24 @@ class Database
         $statement->execute(); // Execute statement
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+    
     public function createProduct(Product $product)
     {
         $statement = $this->pdo->prepare("INSERT INTO products (title, image, description, price, create_date)
-    VALUES (:title, :image, :description, :price, :date)");
-    $statement->bindValue(':title', $product->title);
-    $statement->bindValue(':image', $product->imagePath);
-    $statement->bindValue(':description', $product->description);
-    $statement->bindValue(':price', $product->price);
-    $statement->bindValue(':date', date('Y-m-d H:i:s'));
-    $statement->execute();
+        VALUES (:title, :image, :description, :price, :date)");
+        $statement->bindValue(':title', $product->title);
+        $statement->bindValue(':image', $product->imagePath);
+        $statement->bindValue(':description', $product->description);
+        $statement->bindValue(':price', $product->price);
+        $statement->bindValue(':date', date('Y-m-d H:i:s'));
+        $statement->execute();
     }
 
     public function deleteProduct ($id)
     {
-    $statement = $this->pdo->prepare('DELETE FROM products WHERE id = :id');
-    $statement->bindValue(':id', $id);
-    $statement->execute();
+        $statement = $this->pdo->prepare('DELETE FROM products WHERE id = :id');
+        $statement->bindValue(':id', $id);
+        $statement->execute();
     }
 
     public function getProductById ($id)
